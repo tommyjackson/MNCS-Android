@@ -2,6 +2,24 @@ package com.mncs.networking.util
 
 import com.mncs.networking.response.Metadata
 
+/**
+ * A wrapper around [Either] that contains optional [Metadata] from a network call
+ *
+ * Manager classes can still do
+ * ```
+ * when (response) {
+ *     is Either.Success -> { /* ... */ }
+ *     is Either.Failure -> { /* ... */ }
+ * }
+ * ```
+ * but they can also add an extra check like
+ * ```
+ * if (response is NetworkEither) {
+ *     val metadata = response.metadata
+ * }
+ * ```
+ * for extra info about the call if necessary
+ */
 sealed interface NetworkEither {
     val metadata: Metadata?
 

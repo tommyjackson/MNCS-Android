@@ -61,7 +61,7 @@ internal class ResponseCall<S : Any>(
                                 )
                             }
                             is GenericResponse.EmptyResponse -> {
-                                // TODO comment explaining the forced cast
+                                // TODO comment explaining the forced cast, add metadata
                                 if (successType == Unit::class.java) {
                                     callback.onResponse(
                                         this@ResponseCall,
@@ -69,7 +69,7 @@ internal class ResponseCall<S : Any>(
                                     )
                                 } else {
                                     // This should never get here, but return error just in case
-                                    // TODO custom message?
+                                    // TODO custom message? add metadata?
                                     callback.onResponse(
                                         this@ResponseCall,
                                         Response.success(
@@ -84,16 +84,24 @@ internal class ResponseCall<S : Any>(
                         }
                     } else {
                         // Response is successful but the body is null
-                        // TODO custom message? add metadata?
-                        callback.onResponse(
-                            this@ResponseCall,
-                            Response.success(
-                                NetworkEither.Failure(GenericError.UnknownError(
-                                code = code,
-                                message = null,
-                                error = RuntimeException(),
-                            )))
-                        )
+                        // TODO comment explaining the forced cast, add metadata
+                        if (successType == Unit::class.java) {
+                            callback.onResponse(
+                                this@ResponseCall,
+                                Response.success(NetworkEither.Success(Unit as S)),
+                            )
+                        } else {
+                            // TODO custom message? add metadata?
+                            callback.onResponse(
+                                this@ResponseCall,
+                                Response.success(
+                                    NetworkEither.Failure(GenericError.UnknownError(
+                                        code = code,
+                                        message = null,
+                                        error = RuntimeException(),
+                                    )))
+                            )
+                        }
                     }
                 } else {
                     val errorBody = if (error == null || error.contentLength() == 0L) {

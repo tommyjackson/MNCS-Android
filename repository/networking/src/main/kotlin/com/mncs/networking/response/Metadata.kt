@@ -7,5 +7,5 @@ import com.squareup.moshi.JsonClass
 data class Metadata(
     @Json(name = "code") val code: Int,
     @Json(name = "message") val message: String?,
-    @Json(name = "rule_violation") val ruleViolation: String,
+    @Json(name = "rule_violation") val ruleViolation: String?,
 )

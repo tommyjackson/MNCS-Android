@@ -6,6 +6,7 @@ import com.mncs.networking.dummy.DummyService
 import com.mncs.networking.factory.NetworkFactory
 import com.mncs.networking.response.GenericError
 import com.mncs.networking.util.Either
+import com.mncs.networking.util.NetworkEither
 import io.mockk.unmockkAll
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockResponse
@@ -47,7 +48,7 @@ class DummyManagerTest {
     }
 
     @Test
-    fun `ResponseCallAdapter handles response with meta`() = runBlocking {
+    fun `ResponseCallAdapter handles data level response with meta`() = runBlocking {
         val expectedName = "Test"
         val expectedAge = 21
 
@@ -69,12 +70,41 @@ class DummyManagerTest {
 
         val actual = dummyManager.getDummyData()
         assert(actual is Either.Success)
-        assert((actual as Either.Success).success?.name == expectedName)
-        assert((actual as Either.Success).success?.age == expectedAge)
+        assert((actual as Either.Success).success.name == expectedName)
+        assert(actual.success.age == expectedAge)
     }
 
     @Test
-    fun `ResponseCallAdapter handles response without meta`() = runBlocking {
+    fun `ResponseCallAdapter returns NetworkEither with metadata`() = runBlocking {
+        val expectedName = "Test"
+        val expectedAge = 21
+
+        val successfulResponse = MockResponse().setResponseCode(200).setBody(
+            """
+                {
+                    "data":{
+                        "name":"Test",
+                        "age":21
+                    },
+                    "meta":{
+                        "code":200
+                    }
+                }
+            """.trimIndent()
+        )
+
+        mockWebServer.enqueue(successfulResponse)
+
+        val actual = dummyService.getDummyData()
+        assert(actual is Either.Success)
+        assert((actual as Either.Success).success.name == expectedName)
+        assert(actual.success.age == expectedAge)
+        assert(actual is NetworkEither)
+        assert((actual as NetworkEither).metadata?.code == 200)
+    }
+
+    @Test
+    fun `ResponseCallAdapter handles data level response without meta`() = runBlocking {
         val expectedName = "Test"
         val expectedAge = 21
 
@@ -93,8 +123,35 @@ class DummyManagerTest {
 
         val actual = dummyManager.getDummyData()
         assert(actual is Either.Success)
-        assert((actual as Either.Success).success?.name == expectedName)
-        assert((actual as Either.Success).success?.age == expectedAge)
+        assert((actual as Either.Success).success.name == expectedName)
+        assert(actual.success.age == expectedAge)
+    }
+
+    @Test
+    fun `ResponseCallAdapter returns NetworkEither without metadata`() = runBlocking {
+        val expectedName = "Test"
+        val expectedAge = 21
+
+        val successfulResponse = MockResponse().setResponseCode(200).setBody(
+            """
+                {
+                    "data":{
+                        "name":"Test",
+                        "age":21
+                    }
+                }
+            """.trimIndent()
+        )
+
+        mockWebServer.enqueue(successfulResponse)
+
+        val actual = dummyService.getDummyData()
+        assert(actual is Either.Success)
+        assert((actual as Either.Success).success.name == expectedName)
+        assert(actual.success.age == expectedAge)
+        assert(actual is NetworkEither)
+        // TODO for now this will be true, but will be changed to have metadata built from okhttp response
+        assert((actual as NetworkEither).metadata == null)
     }
 
     @Test
@@ -115,8 +172,8 @@ class DummyManagerTest {
 
         val actual = dummyManager.getDummyData()
         assert(actual is Either.Success)
-        assert((actual as Either.Success).success?.name == expectedName)
-        assert((actual as Either.Success).success?.age == expectedAge)
+        assert((actual as Either.Success).success.name == expectedName)
+        assert(actual.success.age == expectedAge)
     }
 
     @Test
@@ -139,7 +196,7 @@ class DummyManagerTest {
         val actual = dummyManager.getDummyData()
         assert(actual is Either.Failure)
         assert((actual as Either.Failure).failure.code == expectedCode)
-        assert((actual as Either.Failure).failure.message == expectedMessage)
+        assert(actual.failure.message == expectedMessage)
         assert(actual.failure is GenericError.CustomErrorOne)
         assert((actual.failure as GenericError.CustomErrorOne).code == expectedCode)
         assert((actual.failure as GenericError.CustomErrorOne).message == expectedMessage)
@@ -169,7 +226,7 @@ class DummyManagerTest {
         val actual = dummyManager.getDummyData()
         assert(actual is Either.Failure)
         assert((actual as Either.Failure).failure.code == expectedCode)
-        assert((actual as Either.Failure).failure.message == expectedMessage)
+        assert(actual.failure.message == expectedMessage)
         assert(actual.failure is GenericError.CustomErrorTwo)
         assert((actual.failure as GenericError.CustomErrorTwo).code == expectedCode)
         assert((actual.failure as GenericError.CustomErrorTwo).message == expectedMessage)
@@ -177,20 +234,13 @@ class DummyManagerTest {
     }
 
     @Test
-    fun `ResponseCallAdapter handles empty response success`() = runBlocking {
-        val expectedName = "Test"
-        val expectedAge = 21
+    fun `ResponseCallAdapter handles Unit response with body success`() = runBlocking {
 
         val successfulResponse = MockResponse().setResponseCode(200).setBody(
             """
                 {
-                    "data":{
-                        "name":"Test",
-                        "age":21
-                    },
-                    "meta":{
-                        "code":200
-                    }
+                    "name":"Test",
+                    "age":21
                 }
             """.trimIndent()
         )
@@ -199,5 +249,39 @@ class DummyManagerTest {
 
         val actual = dummyManager.getEmptyDummyData()
         assert(actual is Either.Success<Unit>)
+    }
+
+    @Test
+    fun `ResponseCallAdapter handles empty response success`() = runBlocking {
+
+        val successfulResponse = MockResponse().setResponseCode(200)
+
+        mockWebServer.enqueue(successfulResponse)
+
+        val actual = dummyManager.getEmptyDummyData()
+        assert(actual is Either.Success<Unit>)
+    }
+
+    @Test
+    fun `ResponseCallAdapter handles Unit response with body failure`() = runBlocking {
+        val errorResponse = MockResponse().setResponseCode(500).setBody(
+            """
+                {
+                    "name":"Test",
+                    "age":21
+                }
+            """.trimIndent()
+        )
+        mockWebServer.enqueue(errorResponse)
+        val actual = dummyManager.getEmptyDummyData()
+        assert(actual is Either.Failure)
+    }
+
+    @Test
+    fun `ResponseCallAdapter handles empty response failure`() = runBlocking {
+        val errorResponse = MockResponse().setResponseCode(500)
+        mockWebServer.enqueue(errorResponse)
+        val actual = dummyManager.getEmptyDummyData()
+        assert(actual is Either.Failure)
     }
 }

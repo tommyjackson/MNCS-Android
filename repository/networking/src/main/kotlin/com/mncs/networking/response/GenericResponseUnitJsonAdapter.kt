@@ -1,12 +1,17 @@
 package com.mncs.networking.response
 
 import com.squareup.moshi.*
+import java.io.EOFException
 
 object GenericResponseUnitJsonAdapter {
 
     @FromJson
     fun fromJson(reader: JsonReader): GenericResponse<Unit> {
-        reader.skipValue()
+        try {
+            reader.skipValue()
+        } catch (_: EOFException) {
+            // do nothing, we allow empty responses for Unit return type
+        }
         return GenericResponse.EmptyResponse
     }
 
