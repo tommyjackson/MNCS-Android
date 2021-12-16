@@ -1,0 +1,17 @@
+apply from: "$rootDir/gradle/kaptConfig.gradle"
+
+dependencies {
+    kapt("com.google.dagger:hilt-compiler:$hiltVersion")
+}
+
+if (project.hasProperty("android")) {
+    apply plugin: "dagger.hilt.android.plugin"
+
+    dependencies {
+        implementation("com.google.dagger:hilt-android:$hiltVersion")
+    }
+} else {
+    dependencies {
+        implementation("com.google.dagger:hilt-core:$hiltVersion")
+    }
+}

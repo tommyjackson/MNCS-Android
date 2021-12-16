@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mncs.networking.DummyManagerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-12-16T10:17:19" hostname="Tommys-MBP-2" time="0.551">
+  <properties/>
+  <testcase name="ResponseCallAdapter handles top level response" classname="com.mncs.networking.DummyManagerTest" time="0.529"/>
+  <testcase name="ResponseCallAdapter handles response without meta" classname="com.mncs.networking.DummyManagerTest" time="0.005"/>
+  <testcase name="ResponseCallAdapter handles response with meta" classname="com.mncs.networking.DummyManagerTest" time="0.005"/>
+  <testcase name="ResponseCallAdapter handles custom generic error one" classname="com.mncs.networking.DummyManagerTest" time="0.004"/>
+  <testcase name="ResponseCallAdapter handles custom generic error two" classname="com.mncs.networking.DummyManagerTest" time="0.004"/>
+  <testcase name="ResponseCallAdapter handles empty response success" classname="com.mncs.networking.DummyManagerTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
