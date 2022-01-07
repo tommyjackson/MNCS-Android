@@ -16,8 +16,8 @@ ext {
     lifecycleVersion = "2.4.0"
 
     // compose
-    composeVersion = "1.0.4"
-    composeCompilerVersion = "1.1.0-alpha05"
+    composeVersion = "1.0.5"
+    composeCompilerVersion = "1.0.5"
 
     // desugaring
     desugaringVersion = "1.1.5"

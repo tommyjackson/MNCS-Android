@@ -4,6 +4,7 @@ plugins {
 }
 
 apply from: "$rootDir/gradle/dependencies.gradle"
+apply from: "$rootDir/gradle/compose.gradle"
 
 android {
     compileSdk androidVersions.targetAndCompileSdkVersion
