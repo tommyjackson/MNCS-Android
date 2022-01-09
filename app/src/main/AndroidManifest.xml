@@ -9,13 +9,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MNCS"
+        android:theme="@style/Theme.AppCompat"
         android:fullBackupContent="@xml/backup_descriptor" >
 
         <activity
             android:name=".main.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.MNCS"
             android:label="@string/app_name">
 
             <intent-filter>

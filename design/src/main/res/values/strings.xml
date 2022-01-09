@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MNCS</string>
+
+    <!--  Bottom Navigation Items  -->
+    <string name="nav_feed">Feed</string>
+    <string name="nav_schedule">Schedule</string>
+    <string name="nav_standings">Standings</string>
 </resources>

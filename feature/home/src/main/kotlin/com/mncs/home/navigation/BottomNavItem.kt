@@ -1,8 +1,16 @@
 package com.mncs.home.navigation
 
-sealed class BottomNavItem(var title:String, var icon:Int, var screen_route:String){
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import com.tjackapps.mncs.home.R
 
-//    object Feed : BottomNavItem("Home", R.drawable.ic_home,"home")
-//    object Schedule: BottomNavItem("My Network",R.drawable.ic_my_network,"my_network")
-//    object Standings: BottomNavItem("Post",R.drawable.ic_post,"add_post")
+sealed class BottomNavItem(
+    @StringRes val title: Int,
+    @DrawableRes val icon: Int,
+    val route: String,
+) {
+
+    object Feed : BottomNavItem(R.string.nav_feed, R.drawable.ic_feed,"feed")
+    object Schedule: BottomNavItem(R.string.nav_schedule, R.drawable.ic_schedule,"schedule")
+    object Standings: BottomNavItem(R.string.nav_standings, R.drawable.ic_standings,"standings")
 }
