@@ -1,4 +1,4 @@
-package com.mncs.data
+package com.mncs.data.formulas
 
 data class Team(
     val id: String,

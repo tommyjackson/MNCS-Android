@@ -1,4 +1,4 @@
-package com.mncs.data
+package com.mncs.data.formulas
 
 enum class MatchType(maxGames: Int, gameWinsToWinMatch: Int) {
     BO1(maxGames = 1, gameWinsToWinMatch = 1),

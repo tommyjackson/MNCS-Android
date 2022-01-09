@@ -1,22 +1,21 @@
-package com.mncs.data
+package com.mncs.data.formulas
 
-import com.mncs.data.Mncs18Matches.BLOOMINGTON_vs_ROCHESTER
-import com.mncs.data.Mncs18Matches.BURNSVILLE_vs_ST_PAUL
-import com.mncs.data.Mncs18Matches.DULUTH_vs_MINNETONKA
-import com.mncs.data.Mncs18Matches.MINNEAPOLIS_vs_HIBBING
-import com.mncs.data.Mncs18Matches.ST_CLOUD_vs_BEMIDJI
-import com.mncs.data.MncsTeams.BEMIDJI_LUMBERJACKS
-import com.mncs.data.MncsTeams.BLOOMINGTON_MAULERS
-import com.mncs.data.MncsTeams.BURNSVILLE_INFERNO
-import com.mncs.data.MncsTeams.DULUTH_SUPERIORS
-import com.mncs.data.MncsTeams.HIBBING_RANGERS
-import com.mncs.data.MncsTeams.MINNEAPOLIS_MIRACLES
-import com.mncs.data.MncsTeams.MINNETONKA_BARONS
-import com.mncs.data.MncsTeams.MNCS_TEAMS
-import com.mncs.data.MncsTeams.ROCHESTER_RHYTHM
-import com.mncs.data.MncsTeams.ST_CLOUD_FLYERS
-import com.mncs.data.MncsTeams.ST_PAUL_SENATORS
-import com.mncs.data.Standings.Companion.printStandings
+import com.mncs.data.formulas.Mncs18Matches.BLOOMINGTON_vs_ROCHESTER
+import com.mncs.data.formulas.Mncs18Matches.BURNSVILLE_vs_ST_PAUL
+import com.mncs.data.formulas.Mncs18Matches.DULUTH_vs_MINNETONKA
+import com.mncs.data.formulas.Mncs18Matches.MINNEAPOLIS_vs_HIBBING
+import com.mncs.data.formulas.Mncs18Matches.ST_CLOUD_vs_BEMIDJI
+import com.mncs.data.formulas.MncsTeams.BEMIDJI_LUMBERJACKS
+import com.mncs.data.formulas.MncsTeams.BLOOMINGTON_MAULERS
+import com.mncs.data.formulas.MncsTeams.BURNSVILLE_INFERNO
+import com.mncs.data.formulas.MncsTeams.DULUTH_SUPERIORS
+import com.mncs.data.formulas.MncsTeams.HIBBING_RANGERS
+import com.mncs.data.formulas.MncsTeams.MINNEAPOLIS_MIRACLES
+import com.mncs.data.formulas.MncsTeams.MINNETONKA_BARONS
+import com.mncs.data.formulas.MncsTeams.MNCS_TEAMS
+import com.mncs.data.formulas.MncsTeams.ROCHESTER_RHYTHM
+import com.mncs.data.formulas.MncsTeams.ST_CLOUD_FLYERS
+import com.mncs.data.formulas.MncsTeams.ST_PAUL_SENATORS
 
 fun main() {
 //    printStandings(MNCS_TEAMS)

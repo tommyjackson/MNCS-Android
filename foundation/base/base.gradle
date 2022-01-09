@@ -1,0 +1,8 @@
+apply from: "$rootDir/gradle/androidLibrary.gradle"
+apply from: "$rootDir/gradle/compose.gradle"
+
+dependencies {
+    implementation project(":theme")
+    implementation project(":design")
+    implementation project(":primitives:data")
+}

@@ -1,4 +1,4 @@
-package com.mncs.data
+package com.mncs.data.formulas
 
 import java.io.IOException
 

@@ -1,0 +1,2 @@
+apply from: "$rootDir/gradle/androidLibrary.gradle"
+apply from: "$rootDir/gradle/compose.gradle"

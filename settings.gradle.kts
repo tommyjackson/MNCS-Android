@@ -76,5 +76,9 @@ fun lastOrdinalIndexOf(string: String, searchChar: Char, ordinal: Int): Int {
 }
 
 includeProject(":app")
+includeProject(":theme")
+includeProject(":design")
+includeProject(":feature:home")
 includeProject(":primitives:data")
+includeProject(":foundation:base")
 includeProject(":repository:networking")
