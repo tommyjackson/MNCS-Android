@@ -4,6 +4,7 @@ plugins {
 }
 
 apply from: "$rootDir/gradle/dependencies.gradle"
+apply from: "$rootDir/gradle/dependencyInjection.gradle"
 apply from: "$rootDir/gradle/compose.gradle"
 
 android {
@@ -37,6 +38,9 @@ android {
 dependencies {
     implementation project(":theme")
     implementation project(":feature:home")
+    implementation project(":foundation:initialization")
+    implementation project(":primitives:buildconfig")
+    debugImplementation project(":dev-tools:dev-tools-impl")
 
     implementation "androidx.core:core-ktx:$androidXCoreVersion"
     implementation "androidx.appcompat:appcompat:$appCompatVersion"

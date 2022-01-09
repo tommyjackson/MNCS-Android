@@ -1,28 +1,32 @@
 package com.mncs.networking.factory
 
-import com.mncs.networking.calladapter.ResponseCallAdapterFactory
-import com.mncs.networking.response.GenericErrorAdapterFactory
-import com.mncs.networking.response.GenericResponseAdapterFactory
-import com.mncs.networking.response.GenericResponseUnitJsonAdapter
+import com.mncs.buildconfig.BuildConfig
+import com.mncs.networking.interceptors.DebugInterceptors
 import com.squareup.moshi.Moshi
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
 class NetworkFactory constructor(
+    @DebugInterceptors private val debugInterceptors: Set<@JvmSuppressWildcards Interceptor>,
+    private val buildConfig: BuildConfig,
     clientBuilder: () -> OkHttpClient.Builder = {
         OkHttpClient.Builder()
-    }
+    },
 ) {
 
     internal val rootClient by lazy {
-        clientBuilder().build()
+        clientBuilder().apply {
+            // apply the debug interceptors if it's a debug build
+            if (buildConfig.debug) {
+                interceptors().addAll(debugInterceptors)
+            }
+
+        }.build()
     }
 
     private val rootMoshi: Moshi = Moshi.Builder()
-        .add(GenericResponseUnitJsonAdapter)
-        .add(GenericResponseAdapterFactory)
-        .add(GenericErrorAdapterFactory)
         // add common adapters here
         .build()
 
@@ -55,7 +59,6 @@ class NetworkFactory constructor(
 
         return Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create(moshi))
-            .addCallAdapterFactory(ResponseCallAdapterFactory(moshi))
             .client(client)
             .baseUrl(baseUrl)
             .build()

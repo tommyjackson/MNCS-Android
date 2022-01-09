@@ -9,7 +9,7 @@ ext.androidVersions = [
 ext {
     // androidx
     androidXCoreVersion = "1.7.0"
-    appCompatVersion = "1.3.1"
+    appCompatVersion = "1.4.0"
     constraintLayoutVersion = "2.1.1"
     coroutinesVersion = "1.5.0"
     dataStoreVersion = "1.0.0"

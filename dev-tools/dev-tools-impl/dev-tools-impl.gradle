@@ -1,0 +1,15 @@
+apply from: "$rootDir/gradle/androidLibrary.gradle"
+
+dependencies {
+    implementation project(":repository:networking")
+    implementation project(":primitives:buildconfig")
+    implementation project(":foundation:initialization")
+
+    // flipper
+    implementation("com.facebook.flipper:flipper:$flipperVersion")
+    implementation("com.facebook.soloader:soloader:$flipperSoVersion")
+    implementation("com.facebook.flipper:flipper-network-plugin:$flipperVersion")
+
+    // retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+}

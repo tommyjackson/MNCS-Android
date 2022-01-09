@@ -5,7 +5,7 @@ import com.mncs.networking.dummy.DummyManager
 import com.mncs.networking.dummy.DummyService
 import com.mncs.networking.factory.NetworkFactory
 import com.mncs.networking.response.GenericError
-import com.mncs.networking.util.Either
+import com.mncs.networking.data.Either
 import com.mncs.networking.util.NetworkEither
 import io.mockk.unmockkAll
 import kotlinx.coroutines.runBlocking

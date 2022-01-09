@@ -12,14 +12,25 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/design" />
+            <option value="$PROJECT_DIR$/dev-tools" />
+            <option value="$PROJECT_DIR$/dev-tools/dev-tools-impl" />
             <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/feed" />
             <option value="$PROJECT_DIR$/feature/home" />
+            <option value="$PROJECT_DIR$/feature/schedule" />
+            <option value="$PROJECT_DIR$/feature/standings" />
             <option value="$PROJECT_DIR$/foundation" />
             <option value="$PROJECT_DIR$/foundation/base" />
+            <option value="$PROJECT_DIR$/foundation/initialization" />
             <option value="$PROJECT_DIR$/primitives" />
+            <option value="$PROJECT_DIR$/primitives/buildconfig" />
             <option value="$PROJECT_DIR$/primitives/data" />
+            <option value="$PROJECT_DIR$/primitives/formulas" />
+            <option value="$PROJECT_DIR$/primitives/networking-data" />
             <option value="$PROJECT_DIR$/repository" />
             <option value="$PROJECT_DIR$/repository/networking" />
+            <option value="$PROJECT_DIR$/repository/networking-api" />
+            <option value="$PROJECT_DIR$/repository/repository-impl" />
             <option value="$PROJECT_DIR$/theme" />
           </set>
         </option>

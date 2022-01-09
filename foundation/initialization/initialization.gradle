@@ -1,0 +1,2 @@
+apply from: "$rootDir/gradle/kotlinLibrary.gradle"
+apply from: "$rootDir/gradle/dependencyInjection.gradle"

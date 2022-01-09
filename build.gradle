@@ -7,7 +7,7 @@ buildscript {
         hiltVersion = "2.40.1"
 
         // android gradle plugin
-        agpVersion = '7.0.4'
+        agpVersion = "7.0.4"
     }
 
     repositories {

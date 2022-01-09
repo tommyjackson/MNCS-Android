@@ -7,7 +7,6 @@ class NetworkOptions(
     internal val moshiBuilder: Moshi.Builder,
 ) {
     internal var baseUrl: String? = null
-    internal var applyJwt: Boolean = false
     internal val interceptors: MutableList<Interceptor> = mutableListOf()
 
     fun baseUrl(baseUrl: String) {
@@ -16,10 +15,6 @@ class NetworkOptions(
 
     fun addInterceptor(interceptor: Interceptor) {
         interceptors.add(interceptor)
-    }
-
-    fun applyJwt() {
-        this.applyJwt = true
     }
 
     fun configureMoshi(configuration: MoshiBuilder.() -> Unit) {

@@ -4,9 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.mncs.home.FeedScreen
-import com.mncs.home.ScheduleScreen
-import com.mncs.home.StandingsScreen
+import com.mncs.feed.FeedScreen
+import com.mncs.schedule.ScheduleScreen
+import com.mncs.standings.StandingsScreen
 
 @Composable
 fun NavigationGraph(navController: NavHostController) {
