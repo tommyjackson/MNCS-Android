@@ -1,12 +1,12 @@
-package com.mncs.networking.api.models.teamgame
+package com.mncs.networking.api.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class TeamGameV2Response(
+data class TeamGameResponse(
     @Json(name = "hits")
-    val hits: List<Hit>?,
+    val teamHitResponses: List<TeamHitResponses>?,
     @Json(name = "returned")
     val returned: Int?,
     @Json(name = "total")
