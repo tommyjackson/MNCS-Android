@@ -1,0 +1,10 @@
+apply from: "$rootDir/gradle/androidLibrary.gradle"
+apply from: "$rootDir/gradle/dependencyInjection.gradle"
+
+dependencies {
+    implementation project(":primitives:data")
+
+    implementation("androidx.room:room-ktx:$roomVersion")
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+}

@@ -1,0 +1,5 @@
+apply from: "$rootDir/gradle/androidLibrary.gradle"
+
+dependencies {
+    implementation("androidx.datastore:datastore-preferences:$dataStoreVersion")
+}

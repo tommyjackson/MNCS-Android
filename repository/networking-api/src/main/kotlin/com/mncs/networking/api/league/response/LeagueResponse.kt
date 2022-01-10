@@ -1,10 +1,11 @@
-package com.mncs.networking.api
+package com.mncs.networking.api.league.response
 
+import com.mncs.data.model.League
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class League(
+data class LeagueResponse(
     @Json(name = "current_season_id")
     val currentSeasonId: String,
     @Json(name = "current_week")
@@ -12,5 +13,13 @@ data class League(
     @Json(name = "_id")
     val id: String,
     @Json(name = "name")
-    val name: String
-)
+    val name: String,
+) {
+
+    fun transform(): League {
+        return League(
+            id = currentSeasonId,
+            name = name,
+        )
+    }
+}

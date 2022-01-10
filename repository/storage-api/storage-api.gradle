@@ -1,0 +1,7 @@
+apply from: "$rootDir/gradle/androidLibrary.gradle"
+apply from: "$rootDir/gradle/dependencyInjection.gradle"
+
+dependencies {
+    api project(":repository:storage")
+    implementation project(":primitives:data")
+}

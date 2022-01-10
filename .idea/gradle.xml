@@ -18,10 +18,13 @@
             <option value="$PROJECT_DIR$/feature/feed" />
             <option value="$PROJECT_DIR$/feature/home" />
             <option value="$PROJECT_DIR$/feature/schedule" />
+            <option value="$PROJECT_DIR$/feature/settings" />
             <option value="$PROJECT_DIR$/feature/standings" />
             <option value="$PROJECT_DIR$/foundation" />
             <option value="$PROJECT_DIR$/foundation/base" />
             <option value="$PROJECT_DIR$/foundation/initialization" />
+            <option value="$PROJECT_DIR$/foundation/navigation" />
+            <option value="$PROJECT_DIR$/foundation/preferences" />
             <option value="$PROJECT_DIR$/primitives" />
             <option value="$PROJECT_DIR$/primitives/buildconfig" />
             <option value="$PROJECT_DIR$/primitives/data" />
@@ -31,6 +34,8 @@
             <option value="$PROJECT_DIR$/repository/networking" />
             <option value="$PROJECT_DIR$/repository/networking-api" />
             <option value="$PROJECT_DIR$/repository/repository-impl" />
+            <option value="$PROJECT_DIR$/repository/storage" />
+            <option value="$PROJECT_DIR$/repository/storage-api" />
             <option value="$PROJECT_DIR$/theme" />
           </set>
         </option>

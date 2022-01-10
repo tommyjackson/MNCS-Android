@@ -6,7 +6,7 @@ dependencies {
     implementation project(":design")
     implementation project(":primitives:data")
     implementation project(":foundation:base")
-    implementation project(":feature:feed")
-    implementation project(":feature:schedule")
-    implementation project(":feature:standings")
+    implementation project(":foundation:navigation")
+    implementation project(":foundation:preferences")
+    implementation project(":repository:repository-impl")
 }

@@ -11,7 +11,7 @@ abstract class BaseViewModel<VS, A> : ViewModel() {
     abstract val initialViewState: VS
 
     private val _viewState: MutableStateFlow<VS> by lazy { MutableStateFlow(initialViewState) }
-    protected val viewState: StateFlow<VS> get() = _viewState
+    val viewState: StateFlow<VS> get() = _viewState
 
     private val _action: MutableSharedFlow<A> = MutableSharedFlow()
     protected val action: SharedFlow<A> get() = _action
@@ -31,8 +31,12 @@ abstract class BaseViewModel<VS, A> : ViewModel() {
     }
 
     private fun collectActions() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             _action.collect(::handleAction)
         }
+    }
+
+    init {
+        collectActions()
     }
 }

@@ -16,5 +16,6 @@ compileTestKotlin {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
+    implementation("com.jakewharton.timber:timber:$timberVersion")
     testImplementation("junit:junit:$junitVersion")
 }

@@ -46,7 +46,7 @@ ext {
     retrofitVersion = "2.9.0"
 
     // room
-    roomVersion = "2.4.0-beta01"
+    roomVersion = "2.4.0"
 
     // timber
     timberVersion = "4.7.1"

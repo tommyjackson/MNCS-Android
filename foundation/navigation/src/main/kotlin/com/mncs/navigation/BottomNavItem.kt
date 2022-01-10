@@ -1,8 +1,8 @@
-package com.mncs.home.navigation
+package com.mncs.navigation
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.tjackapps.mncs.home.R
+import com.tjackapps.mncs.navigation.R
 
 sealed class BottomNavItem(
     @StringRes val title: Int,

@@ -1,4 +1,4 @@
-package com.mncs.home.navigation
+package com.mncs.navigation
 
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
