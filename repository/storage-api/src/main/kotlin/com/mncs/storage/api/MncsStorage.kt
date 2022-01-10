@@ -5,7 +5,7 @@ import com.mncs.storage.dao.LeagueDao
 import com.mncs.storage.entity.LeagueEntity
 import javax.inject.Inject
 
-class LeagueStorage @Inject constructor(
+class MncsStorage @Inject constructor(
     private val leagueDao: LeagueDao,
 ) {
 

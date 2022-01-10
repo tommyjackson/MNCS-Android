@@ -4,7 +4,7 @@ import com.mncs.base.BaseViewModel
 import com.mncs.home.HomeViewModel.Action
 import com.mncs.home.HomeViewModel.ViewState
 import com.mncs.preferences.definition.PreferencesManager
-import com.mncs.repository.LeagueRepository
+import com.mncs.repository.MncsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import timber.log.Timber
 import javax.inject.Inject
@@ -12,7 +12,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val preferencesManager: PreferencesManager,
-    private val leagueRepository: LeagueRepository,
+    private val mncsRepository: MncsRepository,
 ) : BaseViewModel<ViewState, Action>() {
 
     override val initialViewState: ViewState = ViewState.Loading
@@ -31,7 +31,7 @@ class HomeViewModel @Inject constructor(
         if (selectedLeagueId.isNotBlank()) {
             setViewState(ViewState.Content(selectedLeagueId = selectedLeagueId))
         } else {
-            val leagues = leagueRepository.getLeagues(forceRemote = true)
+            val leagues = mncsRepository.getLeagues(forceRemote = true)
 
             if (leagues.isNotEmpty()) {
                 val firstLeagueId = leagues.first().id

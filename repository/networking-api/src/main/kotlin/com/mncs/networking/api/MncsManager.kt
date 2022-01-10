@@ -1,12 +1,11 @@
-package com.mncs.networking.api.league
+package com.mncs.networking.api
 
 import com.mncs.data.model.League
-import com.mncs.networking.api.MncsService
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class LeagueManager @Inject constructor(
+class MncsManager @Inject constructor(
     private val mncsService: MncsService,
 ) {
 

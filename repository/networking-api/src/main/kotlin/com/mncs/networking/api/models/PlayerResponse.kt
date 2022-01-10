@@ -4,7 +4,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class Player(
+data class PlayerResponse(
     @Json(name = "discord_id")
     val discordId: String?,
     @Json(name = "_id")
@@ -12,5 +12,5 @@ data class Player(
     @Json(name = "screen_name")
     val screenName: String,
     @Json(name = "team_history")
-    val teamHistory: List<TeamHistory>?,
+    val teamHistoryResponse: List<TeamHistoryResponse>?,
 )

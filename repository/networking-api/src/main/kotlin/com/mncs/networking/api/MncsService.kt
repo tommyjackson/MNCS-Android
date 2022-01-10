@@ -1,6 +1,6 @@
 package com.mncs.networking.api
 
-import com.mncs.networking.api.league.response.LeagueResponse
+import com.mncs.networking.api.models.LeagueResponse
 import retrofit2.Response
 import retrofit2.http.GET
 

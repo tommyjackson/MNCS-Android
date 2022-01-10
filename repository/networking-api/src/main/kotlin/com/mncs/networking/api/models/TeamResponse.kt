@@ -4,7 +4,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class Team(
+data class TeamResponse(
     @Json(name = "discord_id")
     val discordId: String,
     @Json(name = "hex_color")
@@ -20,7 +20,7 @@ data class Team(
 ) {
 
     fun getColor(): String {
-        return if(hexColor.startsWith("#"))  {
+        return if (hexColor.startsWith("#")) {
             hexColor
         } else {
             "#".plus(hexColor)

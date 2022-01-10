@@ -1,31 +1,31 @@
 package com.mncs.repository
 
 import com.mncs.data.model.League
-import com.mncs.networking.api.league.LeagueManager
-import com.mncs.storage.api.LeagueStorage
+import com.mncs.networking.api.MncsManager
+import com.mncs.storage.api.MncsStorage
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class LeagueRepository @Inject constructor(
-    private val leagueManager: LeagueManager,
-    private val leagueStorage: LeagueStorage,
+class MncsRepository @Inject constructor(
+    private val mncsManager: MncsManager,
+    private val mncsStorage: MncsStorage,
 ) {
 
     suspend fun getLeagues(forceRemote: Boolean = false): List<League> {
         return if (forceRemote) {
-            val remote = leagueManager.getLeagues()
-            leagueStorage.storeLeagues(remote)
+            val remote = mncsManager.getLeagues()
+            mncsStorage.storeLeagues(remote)
             remote
         } else {
             val currentTime = System.currentTimeMillis()
-            val local = leagueStorage.getLeagues()
+            val local = mncsStorage.getLeagues()
 
             val stale = local.firstOrNull { currentTime - it.modifiedAt > leagueStaleAfterMillis }
 
             if (stale != null) {
-                val remote = leagueManager.getLeagues()
-                leagueStorage.storeLeagues(remote)
+                val remote = mncsManager.getLeagues()
+                mncsStorage.storeLeagues(remote)
                 remote
             } else {
                 local.map { it.transform() }

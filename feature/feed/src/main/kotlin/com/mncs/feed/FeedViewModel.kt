@@ -2,14 +2,14 @@ package com.mncs.feed
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mncs.repository.LeagueRepository
+import com.mncs.repository.MncsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class FeedViewModel @Inject constructor(
-    private val leagueRepository: LeagueRepository,
+    private val mncsRepository: MncsRepository,
 ) : ViewModel() {
 
     init {
@@ -18,7 +18,7 @@ class FeedViewModel @Inject constructor(
 
     fun getPlayers() {
         viewModelScope.launch {
-            val response = leagueRepository.getLeagues(true)
+            val response = mncsRepository.getLeagues(true)
             val x = 3
             val dx = 3
         }

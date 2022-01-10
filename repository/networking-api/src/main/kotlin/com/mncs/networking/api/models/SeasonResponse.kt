@@ -1,6 +1,5 @@
 package com.mncs.networking.api.models
 
-import com.mncs.networking.api.league.response.LeagueResponse
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
@@ -13,7 +12,7 @@ data class SeasonResponse(
     @Json(name = "name")
     val name: String,
     @Json(name = "players")
-    val players: List<Player>,
+    val playerResponses: List<PlayerResponse>,
     @Json(name = "teams")
-    val teams: List<Team>,
+    val teamResponses: List<TeamResponse>,
 )

@@ -1,10 +1,10 @@
-package com.mncs.networking.api.models.playergame
+package com.mncs.networking.api.models
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class Hit(
+data class TeamHitResponses(
     @Json(name = "amount_collected")
     val amountCollected: Int?,
     @Json(name = "amount_collected_big")
@@ -25,16 +25,6 @@ data class Hit(
     val amountUsedWhileSupersonic: Int?,
     @Json(name = "assists")
     val assists: Int?,
-    @Json(name = "avg_distance_to_ball")
-    val avgDistanceToBall: Int?,
-    @Json(name = "avg_distance_to_ball_no_possession")
-    val avgDistanceToBallNoPossession: Int?,
-    @Json(name = "avg_distance_to_ball_possession")
-    val avgDistanceToBallPossession: Int?,
-    @Json(name = "avg_distance_to_mates")
-    val avgDistanceToMates: Int?,
-    @Json(name = "avg_powerslide_duration")
-    val avgPowerslideDuration: Double?,
     @Json(name = "count_collected_big")
     val countCollectedBig: Int?,
     @Json(name = "count_collected_small")
@@ -95,14 +85,10 @@ data class Hit(
     val msBoost75100: Int?,
     @Json(name = "ms_boost_speed")
     val msBoostSpeed: Int?,
-    @Json(name = "ms_closest_to_ball")
-    val msClosestToBall: Int?,
     @Json(name = "ms_defensive_half")
     val msDefensiveHalf: Int?,
     @Json(name = "ms_defensive_third")
     val msDefensiveThird: Int?,
-    @Json(name = "ms_farthest_from_ball")
-    val msFarthestFromBall: Int?,
     @Json(name = "ms_full_boost")
     val msFullBoost: Int?,
     @Json(name = "ms_ground")
@@ -113,10 +99,6 @@ data class Hit(
     val msInfrontBall: Int?,
     @Json(name = "ms_low_air")
     val msLowAir: Int?,
-    @Json(name = "ms_most_back")
-    val msMostBack: Int?,
-    @Json(name = "ms_most_forward")
-    val msMostForward: Int?,
     @Json(name = "ms_neutral_third")
     val msNeutralThird: Int?,
     @Json(name = "ms_offensive_half")
@@ -133,22 +115,100 @@ data class Hit(
     val msSupersonicSpeed: Int?,
     @Json(name = "ms_zero_boost")
     val msZeroBoost: Int?,
-    @Json(name = "mvps")
-    val mvps: Int?,
+    @Json(name = "opponent_amount_collected")
+    val opponentAmountCollected: Int?,
+    @Json(name = "opponent_amount_collected_big")
+    val opponentAmountCollectedBig: Int?,
+    @Json(name = "opponent_amount_collected_small")
+    val opponentAmountCollectedSmall: Int?,
+    @Json(name = "opponent_amount_overfill")
+    val opponentAmountOverfill: Int?,
+    @Json(name = "opponent_amount_overfill_stolen")
+    val opponentAmountOverfillStolen: Int?,
+    @Json(name = "opponent_amount_stolen")
+    val opponentAmountStolen: Int?,
+    @Json(name = "opponent_amount_stolen_big")
+    val opponentAmountStolenBig: Int?,
+    @Json(name = "opponent_amount_stolen_small")
+    val opponentAmountStolenSmall: Int?,
+    @Json(name = "opponent_amount_used_while_supersonic")
+    val opponentAmountUsedWhileSupersonic: Int?,
+    @Json(name = "opponent_assists")
+    val opponentAssists: Int?,
+    @Json(name = "opponent_count_collected_big")
+    val opponentCountCollectedBig: Int?,
+    @Json(name = "opponent_count_collected_small")
+    val opponentCountCollectedSmall: Int?,
+    @Json(name = "opponent_count_powerslide")
+    val opponentCountPowerslide: Int?,
+    @Json(name = "opponent_count_stolen_big")
+    val opponentCountStolenBig: Int?,
+    @Json(name = "opponent_count_stolen_small")
+    val opponentCountStolenSmall: Int?,
+    @Json(name = "opponent_demos_inflicted")
+    val opponentDemosInflicted: Int?,
+    @Json(name = "opponent_demos_taken")
+    val opponentDemosTaken: Int?,
+    @Json(name = "opponent_goals")
+    val opponentGoals: Int?,
+    @Json(name = "opponent_goals_against")
+    val opponentGoalsAgainst: Int?,
+    @Json(name = "opponent_ms_behind_ball")
+    val opponentMsBehindBall: Int?,
+    @Json(name = "opponent_ms_boost_0_25")
+    val opponentMsBoost025: Int?,
+    @Json(name = "opponent_ms_boost_25_50")
+    val opponentMsBoost2550: Int?,
+    @Json(name = "opponent_ms_boost_50_75")
+    val opponentMsBoost5075: Int?,
+    @Json(name = "opponent_ms_boost_75_100")
+    val opponentMsBoost75100: Int?,
+    @Json(name = "opponent_ms_boost_speed")
+    val opponentMsBoostSpeed: Int?,
+    @Json(name = "opponent_ms_defensive_half")
+    val opponentMsDefensiveHalf: Int?,
+    @Json(name = "opponent_ms_defensive_third")
+    val opponentMsDefensiveThird: Int?,
+    @Json(name = "opponent_ms_full_boost")
+    val opponentMsFullBoost: Int?,
+    @Json(name = "opponent_ms_ground")
+    val opponentMsGround: Int?,
+    @Json(name = "opponent_ms_high_air")
+    val opponentMsHighAir: Int?,
+    @Json(name = "opponent_ms_infront_ball")
+    val opponentMsInfrontBall: Int?,
+    @Json(name = "opponent_ms_low_air")
+    val opponentMsLowAir: Int?,
+    @Json(name = "opponent_ms_neutral_third")
+    val opponentMsNeutralThird: Int?,
+    @Json(name = "opponent_ms_offensive_half")
+    val opponentMsOffensiveHalf: Int?,
+    @Json(name = "opponent_ms_offensive_third")
+    val opponentMsOffensiveThird: Int?,
+    @Json(name = "opponent_ms_powerslide")
+    val opponentMsPowerslide: Int?,
+    @Json(name = "opponent_ms_slow_speed")
+    val opponentMsSlowSpeed: Int?,
+    @Json(name = "opponent_ms_supersonic_speed")
+    val opponentMsSupersonicSpeed: Int?,
+    @Json(name = "opponent_ms_zero_boost")
+    val opponentMsZeroBoost: Int?,
+    @Json(name = "opponent_saves")
+    val opponentSaves: Int?,
+    @Json(name = "opponent_score")
+    val opponentScore: Int?,
+    @Json(name = "opponent_shots")
+    val opponentShots: Int?,
+    @Json(name = "opponent_shots_against")
+    val opponentShotsAgainst: Int?,
     @Json(name = "opponent_team_id")
     val opponentTeamId: String?,
     @Json(name = "opponent_team_name")
     val opponentTeamName: String?,
+    @Json(name = "opponent_total_distance")
+    val opponentTotalDistance: Int?,
     @Json(name = "overtime_seconds_played")
     val overtimeSecondsPlayed: Int?,
-    @Json(name = "player_id")
-    val playerId: String?,
-    @Json(name = "player_name")
-    val playerName: String?,
-    @Json(name = "player_platform")
-    val playerPlatform: String?,
-    @Json(name = "player_platform_id")
-    val playerPlatformId: String?,
     @Json(name = "saves")
     val saves: Int?,
     @Json(name = "score")
@@ -173,4 +233,5 @@ data class Hit(
     val week: Int?,
     @Json(name = "wins")
     val wins: Int?,
+//    var opponentTeamEntity: TeamEntity? = null // not provided by server, we fill this in TODO
 )

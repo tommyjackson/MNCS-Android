@@ -4,7 +4,7 @@ import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class Match(
+data class MatchResponse(
     @Json(name = "_id")
     val id: String,
     @Json(name = "status")
@@ -14,7 +14,7 @@ data class Match(
     @Json(name = "week")
     val week: Int,
     @Json(name = "season")
-    val season: PopulateSeason,
+    val seasonResponse: PopulateSeasonResponse,
     @Transient val teamOneName: String? = null, // ignored as these are not set by the server but we populate them
     @Transient val teamTwoName: String? = null,
 )

@@ -1,4 +1,4 @@
-package com.mncs.networking.api.league.response
+package com.mncs.networking.api.models
 
 import com.mncs.data.model.League
 import com.squareup.moshi.Json
