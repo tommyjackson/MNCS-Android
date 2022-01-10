@@ -3,6 +3,7 @@ apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
 apply plugin: "kotlin-parcelize"
 apply from: "$rootDir/gradle/dependencyInjection.gradle"
+apply from: "$rootDir/gradle/spotless.gradle"
 
 android {
     compileSdk = androidVersions.targetAndCompileSdkVersion

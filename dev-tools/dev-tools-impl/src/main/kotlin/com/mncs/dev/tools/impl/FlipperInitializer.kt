@@ -1,14 +1,14 @@
 package com.mncs.dev.tools.impl
 
 import android.content.Context
-import com.mncs.initialization.Initializer
-import com.mncs.buildconfig.BuildConfig
 import com.facebook.flipper.android.AndroidFlipperClient
 import com.facebook.flipper.android.utils.FlipperUtils
 import com.facebook.flipper.plugins.inspector.DescriptorMapping
 import com.facebook.flipper.plugins.inspector.InspectorFlipperPlugin
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import com.facebook.soloader.SoLoader
+import com.mncs.buildconfig.BuildConfig
+import com.mncs.initialization.Initializer
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton

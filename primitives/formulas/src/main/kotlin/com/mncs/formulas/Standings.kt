@@ -25,7 +25,7 @@ data class Standings(
             println("| Seed | Team Name | Match Record | Game Record | Game Win % |")
 
             standings.forEachIndexed { index, team ->
-                println("| ${index+1} | ${team.name} | ${team.matchWins}-${team.matchLosses} | ${team.gameWins}-${team.gameLosses} | ${team.calculateGameWinPercentageAsString()} |")
+                println("| ${index + 1} | ${team.name} | ${team.matchWins}-${team.matchLosses} | ${team.gameWins}-${team.gameLosses} | ${team.calculateGameWinPercentageAsString()} |")
             }
         }
 

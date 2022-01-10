@@ -10,7 +10,7 @@ sealed class BottomNavItem(
     val route: String,
 ) {
 
-    object Feed : BottomNavItem(R.string.nav_feed, R.drawable.ic_feed,"feed")
-    object Schedule: BottomNavItem(R.string.nav_schedule, R.drawable.ic_schedule,"schedule")
-    object Standings: BottomNavItem(R.string.nav_standings, R.drawable.ic_standings,"standings")
+    object Feed : BottomNavItem(R.string.nav_feed, R.drawable.ic_feed, "feed")
+    object Schedule : BottomNavItem(R.string.nav_schedule, R.drawable.ic_schedule, "schedule")
+    object Standings : BottomNavItem(R.string.nav_standings, R.drawable.ic_standings, "standings")
 }

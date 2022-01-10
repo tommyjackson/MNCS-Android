@@ -210,7 +210,7 @@ private fun isMatchRelevantForScenario(
     return false
 }
 
-//private fun buildPlayoffScenariosForTeam(
+// private fun buildPlayoffScenariosForTeam(
 //    team: Team,
 //    teams: Set<Team>,
 //    first: Match, // bloomington vs rochester
@@ -218,7 +218,7 @@ private fun isMatchRelevantForScenario(
 //    third: Match, // st cloud vs bemidji
 //    fourth: Match, // minneapolis vs hibbing
 //    fifth: Match, // duluth vs minnetonka
-//) {
+// ) {
 //    val sortedTeams = Standings.sortTeamsForStandings(teams)
 //
 //    val foundTeam = sortedTeams.find { it.id == team.id }
@@ -243,7 +243,7 @@ private fun isMatchRelevantForScenario(
 //            }
 //        }
 //    }
-//}
+// }
 
 private fun generateShortScenarioForMatchResult(match: Match): String {
     val winningTeamName: String

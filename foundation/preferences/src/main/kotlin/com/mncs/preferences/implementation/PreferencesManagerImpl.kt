@@ -22,7 +22,6 @@ internal class PreferencesManagerImpl @Inject constructor(
     override suspend fun put(key: String, value: String) {
         val preferenceKey = stringPreferencesKey(key)
 
-
         dataStore.edit { preferences ->
             preferences[preferenceKey] = value
         }

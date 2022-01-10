@@ -16,7 +16,6 @@ fun MncsToolbar() {
         backgroundColor = MaterialTheme.colors.primary,
         contentColor = MaterialTheme.colors.onPrimary,
     ) {
-
     }
 }
 

@@ -25,10 +25,11 @@ fun MncsBottomNavigation(navController: NavController) {
         val currentRoute = navBackStackEntry?.destination?.route
         items.forEach { item ->
             BottomNavigationItem(
-                icon = { Icon(
-                    painter = painterResource(id = item.icon),
-                    contentDescription = stringResource(id = item.title),
-                )
+                icon = {
+                    Icon(
+                        painter = painterResource(id = item.icon),
+                        contentDescription = stringResource(id = item.title),
+                    )
                 },
                 label = {
                     Text(

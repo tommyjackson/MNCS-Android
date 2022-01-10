@@ -64,7 +64,8 @@ private fun LoadingState(
         contentAlignment = Alignment.Center,
         content = {
             CircularProgressIndicator()
-        })
+        }
+    )
 }
 
 @Composable

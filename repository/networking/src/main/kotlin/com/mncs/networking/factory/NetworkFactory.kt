@@ -22,7 +22,6 @@ class NetworkFactory constructor(
             if (buildConfig.debug) {
                 interceptors().addAll(debugInterceptors)
             }
-
         }.build()
     }
 
